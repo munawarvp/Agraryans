@@ -1,0 +1,127 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from www.radixtouch.in/templates/admin/Worksbot/source/light/pages/examples/sign-in.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 07 Feb 2021 12:32:35 GMT -->
+
+<head>
+	<meta charset="UTF-8">
+	<meta content="width=device-width, initial-scale=1" name="viewport" />
+	<title>Agaryans</title>
+	<!-- Favicon-->
+	<link rel="icon" href="../static/assets/images/favicon.ico" type="image/x-icon">
+	<!-- Plugins Core Css -->
+	<link href="../static/assets/css/app.min.css" rel="stylesheet">
+	<!-- Custom Css -->
+	<link href="../static/assets/css/style.css" rel="stylesheet" />
+	<link href="../static/assets/css/pages/extra_pages.css" rel="stylesheet" />
+</head>
+
+<body>
+	{% for i in messages %}
+	{% if 'reg_success' in i.tags %}
+	<div class="alert alert-success alert-dismissible fade show" role="alert">
+		<strong>{{i}}</strong>
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
+	</div>
+	{% endif %}
+	{% endfor %}
+
+	{% for i in messages %}
+	{% if 'failed_login' in i.tags %}
+	<div class="alert alert-danger alert-dismissible fade show" role="alert">
+		<strong>{{i}}</strong>
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+		</button>
+	</div>
+	{% endif %}
+	{% endfor %}
+	<div class="limiter">
+
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<form action="/login_form_submission" method="POST" class="login100-form validate-form">
+					{% csrf_token %}
+					<span class="login100-form-title p-b-45">
+						Login
+					</span>
+
+
+					<div class="wrap-input100 validate-input">
+						<input class="input100" type="text" name="email_id">
+						<span class="focus-input100"></span>
+						<span class="label-input100">Email</span>
+					</div>
+
+
+					<div class="wrap-input100 validate-input">
+						<input class="input100" type="password" name="password">
+						<span class="focus-input100"></span>
+						<span class="label-input100">Password</span>
+					</div>
+
+					<div class="flex-sb-m w-full p-t-15 p-b-20">
+						<div class="form-check">
+							<label class="form-check-label">
+								<input class="form-check-input" type="checkbox" value=""> Remember me
+								<span class="form-check-sign">
+									<span class="check"></span>
+								</span>
+							</label>
+						</div>
+
+						<div>
+							<a href="/forgot_password" class="txt1">
+								Forgot Password?
+							</a>
+						</div>
+					</div>
+
+
+					<div class="d-grid gap-2 d-md-block">
+						<button>
+							<a class="btn btn-primary active" type="submit" role="button" data-bs-toggle="button"
+								aria-pressed="true"> Login </a>
+
+
+						</button>
+
+					</div>
+
+					<div class="text-center p-t-45 p-b-20">
+
+						<p>Don't have an Account? <a href="{% url 'register'%}">Register</a></p>
+
+					</div>
+
+					<div class="login100-form-social flex-c-m">
+						<a href="#" class="login100-form-social-item flex-c-m bg1 m-r-5">
+							<i class="fab fa-facebook-f"></i>
+						</a>
+
+						<a href="#" class="login100-form-social-item flex-c-m bg2 m-r-5">
+							<i class="fab fa-twitter"></i>
+						</a>
+					</div>
+				</form>
+
+				<div class="login100-more" style="background-image: url('../static/assets/images/pages/bg-01.png');">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Plugins Js -->
+	<script src="../static/assets/js/app.min.js"></script>
+	<!-- Extra page Js -->
+	<script src="../static/assets/js/pages/examples/pages.js"></script>
+</body>
+
+
+<!-- Mirrored from www.radixtouch.in/templates/admin/Worksbot/source/light/pages/examples/sign-in.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 07 Feb 2021 12:32:42 GMT -->
+
+</html>
